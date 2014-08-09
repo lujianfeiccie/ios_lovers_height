@@ -12,4 +12,8 @@
 
 +(void) getResult : (Float32) boy_h girl_height : (Float32) girl_h boy : (CGRect*) boy girl : (CGRect*) girl;
 +(void) getResult  : (Float32) canvas_width_ratio : (Float32) canvas_height_ratio boy_height :  (Float32) boy_h girl_height : (Float32) girl_h boy : (CGRect*) boy girl : (CGRect*) girl;
+
++(void) showKeyboard:(UIView*) view;
++(void) hideKeyboard:(UIView*) view;
++(void) editingKeyboard:(UIView*) view :(UITextField*) text;
 @end

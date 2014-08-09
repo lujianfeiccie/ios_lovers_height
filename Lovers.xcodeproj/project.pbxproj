@@ -30,6 +30,7 @@
 		18D1B7E91995E4C10075F7B2 /* PlatformUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1B7E81995E4C10075F7B2 /* PlatformUtil.m */; };
 		18D1B7ED1995E7550075F7B2 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1B7EC1995E7550075F7B2 /* AboutView.m */; };
 		18D1B7EF1995E7960075F7B2 /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D1B7EE1995E7960075F7B2 /* me.png */; };
+		18F63C6E19964C7800049FD0 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F63C6D19964C7800049FD0 /* SettingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		18D1B7EB1995E7550075F7B2 /* AboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutView.h; sourceTree = "<group>"; };
 		18D1B7EC1995E7550075F7B2 /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutView.m; sourceTree = "<group>"; };
 		18D1B7EE1995E7960075F7B2 /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me.png; sourceTree = "<group>"; };
+		18F63C6C19964C7800049FD0 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
+		18F63C6D19964C7800049FD0 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 			children = (
 				18D1B7EB1995E7550075F7B2 /* AboutView.h */,
 				18D1B7EC1995E7550075F7B2 /* AboutView.m */,
+				18F63C6C19964C7800049FD0 /* SettingView.h */,
+				18F63C6D19964C7800049FD0 /* SettingView.m */,
 			);
 			name = UI;
 			path = Lovers/UI;
@@ -327,6 +332,7 @@
 				18D1B7E31995E06A0075F7B2 /* DialogUtil.m in Sources */,
 				185884091995054000CB76C8 /* main.m in Sources */,
 				1858843919950FB300CB76C8 /* Util.m in Sources */,
+				18F63C6E19964C7800049FD0 /* SettingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

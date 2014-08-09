@@ -48,7 +48,14 @@
 }
 -(void) toolBarRight
 {
-    
+    UIViewController *next = [[self storyboard] instantiateViewControllerWithIdentifier:@"setting_view"];
+    ((SettingView*)next).delegate = self;
+    [[app navController] pushViewController:next animated:YES];
+}
+
+-(void) SettingViewClose
+{
+    NSLog(@"SettingViewClose");
 }
 - (void)didReceiveMemoryWarning
 {

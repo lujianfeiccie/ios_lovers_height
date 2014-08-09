@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import"AppDelegate.h"
-@interface ViewController : UIViewController
+#import "SettingView.h"
+@interface ViewController : UIViewController<SettingViewDelegate>
 {
     AppDelegate* app;
     
