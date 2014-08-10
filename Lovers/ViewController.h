@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import"AppDelegate.h"
 #import "SettingView.h"
+
+@class SettingModel;
 @interface ViewController : UIViewController<SettingViewDelegate>
 {
     AppDelegate* app;
@@ -18,7 +20,11 @@
     
     CGRect m_rect_man;
     CGRect m_rect_woman;
+    
+    UILabel* m_label_man;
+    UILabel* m_label_woman;
 }
 -(void) toolBarLeft;
 -(void) toolBarRight;
+-(void) resizeAll : (SettingModel*) model;
 @end
