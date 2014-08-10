@@ -10,7 +10,7 @@
 #import "Util.h"
 #import "NSLogExt.h"
 #import "ButtonUtil.h"
-
+#import "DialogUtil.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     UIStoryboard *storyBoard;

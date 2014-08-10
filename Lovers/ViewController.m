@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "SettingModel.h"
 @interface ViewController ()
 
 @end
@@ -20,14 +20,21 @@
 	// Do any additional setup after loading the view, typically from a nib.
     app = [[UIApplication sharedApplication] delegate];
 
+
     
-    [Util getResult:0.8 :0.7 boy_height:1.75 girl_height:1.75 boy:&m_rect_man girl:&m_rect_woman];
-    
-    m_image_man = [[UIImageView alloc]initWithFrame:m_rect_man];
-    m_image_woman = [[UIImageView alloc]initWithFrame:m_rect_woman];
+    m_image_man = [[UIImageView alloc]init];
+    m_image_woman = [[UIImageView alloc]init];
     
     [m_image_man setImage:[UIImage imageNamed:@"man.png"]];
     [m_image_woman setImage:[UIImage imageNamed:@"woman.png"]];
+
+    SettingModel* model = [SettingModel load];
+    [Util getResult:model
+                boy:&m_rect_man
+               girl:&m_rect_woman];
+    
+    [m_image_man setFrame:m_rect_man];
+    [m_image_woman setFrame:m_rect_woman];
     
     self.navigationItem.title=@"情侣身高对比";
     
@@ -53,9 +60,15 @@
     [[app navController] pushViewController:next animated:YES];
 }
 
--(void) SettingViewClose
+-(void) SettingViewClose:(SettingModel*) model
 {
     NSLog(@"SettingViewClose");
+    [Util getResult:model
+                boy:&m_rect_man
+               girl:&m_rect_woman];
+    
+    [m_image_man setFrame:m_rect_man];
+    [m_image_woman setFrame:m_rect_woman];
 }
 - (void)didReceiveMemoryWarning
 {

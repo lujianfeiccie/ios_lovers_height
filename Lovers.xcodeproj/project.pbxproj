@@ -30,6 +30,7 @@
 		18D1B7E91995E4C10075F7B2 /* PlatformUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1B7E81995E4C10075F7B2 /* PlatformUtil.m */; };
 		18D1B7ED1995E7550075F7B2 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1B7EC1995E7550075F7B2 /* AboutView.m */; };
 		18D1B7EF1995E7960075F7B2 /* me.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D1B7EE1995E7960075F7B2 /* me.png */; };
+		18EE9DF8199716DE00C5DA85 /* SettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EE9DF7199716DE00C5DA85 /* SettingModel.m */; };
 		18F63C6E19964C7800049FD0 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F63C6D19964C7800049FD0 /* SettingView.m */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,8 @@
 		18D1B7EB1995E7550075F7B2 /* AboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutView.h; sourceTree = "<group>"; };
 		18D1B7EC1995E7550075F7B2 /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutView.m; sourceTree = "<group>"; };
 		18D1B7EE1995E7960075F7B2 /* me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = me.png; sourceTree = "<group>"; };
+		18EE9DF6199716DE00C5DA85 /* SettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingModel.h; sourceTree = "<group>"; };
+		18EE9DF7199716DE00C5DA85 /* SettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingModel.m; sourceTree = "<group>"; };
 		18F63C6C19964C7800049FD0 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		18F63C6D19964C7800049FD0 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +112,7 @@
 		185883F01995054000CB76C8 = {
 			isa = PBXGroup;
 			children = (
+				18EE9DF5199716B900C5DA85 /* Model */,
 				18D1B7EA1995E7550075F7B2 /* UI */,
 				1858843619950F5800CB76C8 /* Util */,
 				18588431199505D300CB76C8 /* images */,
@@ -223,6 +227,16 @@
 			path = Lovers/UI;
 			sourceTree = "<group>";
 		};
+		18EE9DF5199716B900C5DA85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18EE9DF6199716DE00C5DA85 /* SettingModel.h */,
+				18EE9DF7199716DE00C5DA85 /* SettingModel.m */,
+			);
+			name = Model;
+			path = Lovers/Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,6 +339,7 @@
 			files = (
 				18D1B7E01995DC4D0075F7B2 /* NSLogExt.m in Sources */,
 				185884131995054000CB76C8 /* ViewController.m in Sources */,
+				18EE9DF8199716DE00C5DA85 /* SettingModel.m in Sources */,
 				1858840D1995054000CB76C8 /* AppDelegate.m in Sources */,
 				18D1B7E61995E0BA0075F7B2 /* ButtonUtil.m in Sources */,
 				18D1B7ED1995E7550075F7B2 /* AboutView.m in Sources */,

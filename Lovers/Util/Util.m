@@ -8,7 +8,18 @@
 
 #import "Util.h"
 #import <math.h>
+#import "SettingModel.h"
 @implementation Util
+
++(void) getResult  : (SettingModel*) model boy : (CGRect*) boy girl : (CGRect*) girl
+{
+    [Util getResult:[model.m_str_canvas_width floatValue]/100.0f
+                   :[model.m_str_canvas_height floatValue]/100.0f
+         boy_height:[model.m_str_man_height floatValue]
+         girl_height:[model.m_str_woman_height floatValue]
+         boy:boy
+         girl:girl];
+}
 +(void) getResult : (Float32) boy_h girl_height : (Float32) girl_h boy : (CGRect*) boy girl : (CGRect*) girl
 {
     [Util getResult:0.8 :0.8 boy_height:boy_h girl_height:girl_h boy:boy girl:girl];
@@ -80,5 +91,12 @@
         view.frame = rect;
     }
     [UIView commitAnimations];
+}
+
++(NSString*) trim : (NSString*) str
+{
+    NSString *result = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+    return result;
 }
 @end

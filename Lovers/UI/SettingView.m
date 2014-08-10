@@ -7,31 +7,10 @@
 //
 
 #import "SettingView.h"
-
+#import "AppDelegate.h"
+#import "SettingModel.h"
 @interface SettingView ()
 
-@end
-@implementation SettingModel
-@synthesize m_str_man_height;
-@synthesize m_str_woman_height;
-@synthesize m_str_canvas_width;
-@synthesize m_str_canvas_height;
--(id) initWithCoder:(NSCoder *)aDecoder{
-    if (self = [super init])
-    {
-        self.m_str_man_height = [aDecoder decodeObjectForKey:@"m_str_man_height"];
-        self.m_str_woman_height = [aDecoder decodeObjectForKey:@"m_str_woman_height"];
-        self.m_str_canvas_width = [aDecoder decodeObjectForKey:@"m_str_canvas_width"];
-        self.m_str_canvas_height = [aDecoder decodeObjectForKey:@"m_str_canvas_height"];
-    }
-    return self;
-}
--(void) encodeWithCoder:(NSCoder *)aCoder{
-    [aCoder encodeObject:m_str_man_height forKey:@"m_str_man_height"];
-    [aCoder encodeObject:m_str_woman_height forKey:@"m_str_woman_height"];
-    [aCoder encodeObject:m_str_canvas_width forKey:@"m_str_canvas_width"];
-    [aCoder encodeObject:m_str_canvas_height forKey:@"m_str_canvas_height"];
-}
 @end
 
 @implementation SettingView
@@ -51,7 +30,7 @@
 	// Do any additional setup after loading the view.
     app = [[UIApplication sharedApplication]delegate];
     self.navigationItem.leftBarButtonItem = [ButtonUtil createToolBarButton:@"返回" target:self action:@selector(toolBarLeft)];
-    
+    self.navigationItem.rightBarButtonItem = [ButtonUtil createToolBarButton:@"确定" target:self action:@selector(toolBarRight)];
     //触摸其它地方让键盘隐藏
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textfieldTouchUpOutside:)];
     [self.view addGestureRecognizer:singleTap];
@@ -61,7 +40,11 @@
     m_textfield_man_height.delegate = self;
     m_textfield_woman_height.delegate = self;
     
-    
+    SettingModel* model = [SettingModel load];
+    m_textfield_canvas_height.text = model.m_str_canvas_height;
+    m_textfield_canvas_width.text = model.m_str_canvas_width;
+    m_textfield_man_height.text = model.m_str_man_height;
+    m_textfield_woman_height.text = model.m_str_woman_height;
 }
 -(void) toolBarLeft
 {
@@ -75,8 +58,38 @@
     m_textfield_man_height.delegate = nil;
     m_textfield_woman_height.delegate = nil;
     
+    [[app navController] popViewControllerAnimated:YES];
+}
+-(void) toolBarRight
+{
+    NSLog(@"canvas height=%@\n",m_textfield_canvas_height.text);
+    NSLog(@"canvas width=%@\n",m_textfield_canvas_width.text);
+    NSLog(@"man height=%@\n",m_textfield_man_height.text);
+    NSLog(@"woman height=%@\n",m_textfield_woman_height.text);
+    
+    m_textfield_canvas_height.delegate = nil;
+    m_textfield_canvas_width.delegate = nil;
+    m_textfield_man_height.delegate = nil;
+    m_textfield_woman_height.delegate = nil;
+    
+    SettingModel *model = [[SettingModel alloc]init];
+    model.m_str_canvas_height = m_textfield_canvas_height.text;
+    model.m_str_canvas_width = m_textfield_canvas_width.text;
+    model.m_str_man_height = m_textfield_man_height.text;
+    model.m_str_woman_height = m_textfield_woman_height.text;
+    
+    
+    if ([[Util trim:m_textfield_canvas_height.text] isEqualToString:@""] ||
+        [[Util trim:m_textfield_canvas_width.text] isEqualToString:@""]  ||
+        [[Util trim:m_textfield_man_height.text]isEqualToString:@""]     ||
+        [[Util trim:m_textfield_woman_height.text]isEqualToString:@""]   )
+    {
+        [DialogUtil createAlertDialog:@"提示" message:@"输入框不能为空!" delegate:nil];
+        return;
+    }
+    [SettingModel save:model];
     if(delegate != nil){
-        [delegate SettingViewClose];
+        [delegate SettingViewClose:model];
     }
     [[app navController] popViewControllerAnimated:YES];
 }
@@ -109,6 +122,7 @@
     [Util editingKeyboard:self.view :textField];
 }
 #pragma mark -
+
 
 
 - (void)didReceiveMemoryWarning

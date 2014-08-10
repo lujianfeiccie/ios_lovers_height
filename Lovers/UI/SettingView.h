@@ -7,25 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+
+
+@class SettingModel;
+@class AppDelegate;
 
 @protocol SettingViewDelegate <NSObject>
-
 @optional
--(void) SettingViewClose;
-@end
-
-@interface SettingModel : NSObject<NSCoding> //用户传值实体类
-{
-    NSString* m_str_man_height;
-    NSString* m_str_woman_height;
-    NSString* m_str_canvas_width;
-    NSString* m_str_canvas_height;
-}
-@property (strong, nonatomic) NSString* m_str_man_height;
-@property (strong, nonatomic) NSString* m_str_woman_height;
-@property (strong, nonatomic) NSString* m_str_canvas_width;
-@property (strong, nonatomic) NSString* m_str_canvas_height;
+-(void) SettingViewClose:(SettingModel*) model;
 @end
 
 @interface SettingView : UIViewController<UITextViewDelegate>
@@ -40,6 +29,7 @@
     
 }
 -(void) toolBarLeft;
+-(void) toolBarRight;
 -(IBAction)textfieldTouchUpOutside:(id)sender;
 @property id<SettingViewDelegate> delegate;
 @end
